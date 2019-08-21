@@ -7322,9 +7322,10 @@ h1, h2, h3, h4, h5,
     padding-bottom: .9rem;
     padding-left: 20px;
     padding-right: 20px;
-    color: #fff;
+    color: #78d5ef;
     font-weight: 400;
-    opacity: 1 !important; }
+    opacity: 1 !important;
+    }
     .ftco-navbar-light .navbar-nav > .nav-item > .nav-link:hover {
       color: #fff; }
     @media (max-width: 991.98px) {
