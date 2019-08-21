@@ -10,7 +10,7 @@ class Register(models.Model):
 	password_child = models.TextField()
 
 class Login(models.Model):
-	username = models.TextField()
+	email = models.TextField()
 	password = models.TextField()
 
 class Search(models.Model):
