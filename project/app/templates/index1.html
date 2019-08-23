@@ -60,9 +60,9 @@
     </nav>
     <!-- END nav -->
     
-    <div class="hero-wrap js-fullheight" style="background-image: url('../static/images/1.jpg');" data-stellar-background-ratio="0.5">
+    <div class="hero-wrap js-fullheight" style="background-image: url('../static/images/childcaremm.jpg');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
-      {% if  request.session.username  == "user" %}
+      {% if  request.session.username %}
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
           <div class="col-xl-5 ftco-animate mb-5 pb-5" data-scrollax=" properties: { translateY: '70%' }">
@@ -86,16 +86,16 @@
 			              <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-nextgen-tab">
 			              	<form action="#" class="search-job">
 			              		<div class="col-md">
-                         <h3 style="color:black">Voice Type Listened : {{recent_class}}<div class="badge-wrap">
-                  {% if  class_type  == "normal" %} <span class="bg-primary text-white badge py-2 px-3">safe</span>
+                         <h3 style="color:black">Voice Type Listened : {{current.typeOfVoice}}<div class="badge-wrap">
+                  {% if  current.class_type == "normal" %} <span class="bg-primary text-white badge py-2 px-3">safe</span>
                   {% else %}<span class="bg-danger text-white badge py-2 px-3">Abnormal</span> {% endif %}
                 </h3>  
                   </div>
-                        </div>
+                      
                       
                         <div class="col-md">
                               <div class="icon"><span class="icon-map-marker"></span></div>
-                              <input type="text" class="form-control" placeholder="datetime" value={{datetime}} disabled="">  
+                              <input type="text" class="form-control" placeholder="datetime" value={{current.startDate}} disabled="">  
                         </div>
                         <div class="col-md">
                               <div class="icon"><span class="icon-map-marker"></span></div>
@@ -116,7 +116,7 @@
 			              				<!--div class="form-group">
 				              				<div class="form-field"-->
 				              					<div class="icon"><span class="icon-map-marker"></span></div>
-								                <input type="text" class="form-control" placeholder="eg. Adam Scott">
+								                <input type="date" class="form-control" placeholder="Data and Time">
 								              <!--/div-->
 							              </div>
 			              			<!--/div-->
@@ -127,11 +127,12 @@
 						                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
 						                      <select name="" id="" class="form-control">
 						                      	<option value="">Category</option>
-						                      	<option value="">Full Time</option>
-						                        <option value="">Part Time</option>
-						                        <option value="">Freelance</option>
-						                        <option value="">Internship</option>
-						                        <option value="">Temporary</option>
+						                      	<option value="">Woman Normal</option>
+						                        <option value="">Woman Abnormal</option>
+						                        <option value="">Man Normal</option>
+						                        <option value="">Man Abnormal</option>
+						                        <option value="">Child Normal</option>
+                                     <option value="">Child Abnormal</option>
 						                      </select>
 						                    </div>
 								              </div>
@@ -159,7 +160,7 @@
 			          </div>
 			        </div>
 		        </div>
-          </div>
+          </div></h3>
            {% else %}
            <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
@@ -178,7 +179,7 @@
    
 
 
-    {% if  request.session.username  == "user" %}
+    {% if  request.session.username %}
     <section class="ftco-section bg-light">
       <div class="container">
         <div class="row justify-content-center mb-5 pb-3">
@@ -188,20 +189,20 @@
           </div>
        
         <div class="row">
-          {% for b in playlist %}
+          {% for b in playlists %}
           <div class="col-md-12 ftco-animate">
                 
             <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
 
               <div class="mb-4 mb-md-0 mr-5">
                 <div class="job-post-item-header d-flex align-items-center">
-                  <h2 class="mr-3 text-black h3">Voice Class: {{b.class}}<div class="badge-wrap">
+                  <h2 class="mr-3 text-black h3">Voice Class: {{b.typeOfVoice}}<div class="badge-wrap">
                   {% if  b.class_type  == "normal" %} <span class="bg-primary text-white badge py-2 px-3">safe</span>
                   {% else %}<span class="bg-danger text-white badge py-2 px-3">Abnormal</span> {% endif %}
                 </div></h2></div>
                   
                 <div class="job-post-item-body d-block d-md-flex">
-                  <div class="mr-3"><span class="icon-date_range"></span> <a href="#">{{b.dt}}</a></div>
+                  <div class="mr-3"><span class="icon-date_range"></span> <a href="#">{{b.startDate}}</a></div>
                   <div><span class="icon-my_location"></span> <span>Location</span></div>
                 </div>
               
@@ -225,7 +226,7 @@
         </div>
       
       </div>
-    </section>
+    </section></div>
     {% else %}
      <section class="ftco-section services-section bg-light">
       <div class="container">

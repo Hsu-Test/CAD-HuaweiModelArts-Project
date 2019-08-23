@@ -91,7 +91,7 @@ DATABASES = {
         # port number.
         'PORT': '3306',
         # database name.
-        'NAME': 'cdb',
+        'NAME': 'childAbuse',
         # user name.
         'USER': 'root',
         # password
